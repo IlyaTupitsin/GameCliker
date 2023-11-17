@@ -16,6 +16,7 @@ public class gameActivity extends AppCompatActivity {
 
     TextView mTimerText;
     private Integer counter2 = 0;
+    private String TimerMode;
 
 
     @Override
@@ -52,15 +53,16 @@ public class gameActivity extends AppCompatActivity {
             findViewById(R.id.button4).setEnabled(true);
             findViewById(R.id.button5).setEnabled(true);
             Bundle arguments = getIntent().getExtras();
-            int X = arguments.getInt("1");
+            int mode = arguments.getInt(TimerMode);
             mTimerText = findViewById(R.id.textView);
           //условиe для выбора времени таймер
-            if (X == 10) {
+            if (mode == 10) {
                 //объявление таймера
+                //объявление таймера на 10000 милисекунд или другими словами 10 секунд, второе число обозначает шаг таймера. В данном случае он равен 1000 милисекунлд или 1 секунде
                 timer = new CountDownTimer(10000, 1000) {
                     @Override
-                    public void onTick(long l) {
-                        mTimerText.setText(""+l/1000);
+                    public void onTick(long  already ) {
+                        mTimerText.setText(""+ already /1000);
                     }
 
                     @Override
@@ -93,12 +95,13 @@ public class gameActivity extends AppCompatActivity {
                 }.start();
             }
             //условиe для выбора времени таймер
-            if (X == 30) {
+            if (mode == 30) {
                 //объявление таймера
+                //объявление таймера на 30000 милисекунд или другими словами 30 секунд, второе число обозначает шаг таймера. В данном случае он равен 1000 милисекунлд или 1 секунде
                 timer = new CountDownTimer(30000, 1000) {
                     @Override
-                    public void onTick(long l) {
-                        mTimerText.setText(""+l/1000);
+                    public void onTick(long already) {
+                        mTimerText.setText(""+ already /1000);
                     }
 
                     @Override
@@ -132,12 +135,13 @@ public class gameActivity extends AppCompatActivity {
                 }.start();
             }
             //условиe для выбора времени таймер
-            if (X == 60) {
+            if (mode == 60) {
                 //объявление таймера
+                //объявление таймера на 60000 милисекунд или другими словами 60 секунд ну или 1 минуте, второе число обозначает шаг таймера. В данном случае он равен 1000 милисекунлд или 1 секунде
                 timer = new CountDownTimer(60000, 1000) {
                     @Override
-                    public void onTick(long l) {
-                        mTimerText.setText(""+l/1000);
+                    public void onTick(long already) {
+                        mTimerText.setText(""+already/1000);
                     }
 
                     @Override

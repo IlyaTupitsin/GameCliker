@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+String TimerMode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickButton1(View view)
     {
 Intent intent = new Intent(this, gameActivity.class);
-        intent.putExtra("1", 10);
+        intent.putExtra(TimerMode,10);
 startActivity(intent);
 
     }
@@ -31,7 +32,7 @@ startActivity(intent);
     public void onClickButton2(View view)
     {
         Intent intent = new Intent(this, gameActivity.class);
-        intent.putExtra("1", 30);
+        intent.putExtra(TimerMode, 30);
         startActivity(intent);
 
     }
@@ -39,7 +40,8 @@ startActivity(intent);
     public void onClickButton3(View view)
     {
         Intent intent = new Intent(this, gameActivity.class);
-        intent.putExtra("1", 60);
+
+        intent.putExtra(TimerMode, 60);
         startActivity(intent);
 
 

@@ -14,6 +14,7 @@
         android:layout_marginEnd="152dp"
         android:backgroundTint="#1E88E5"
         android:onClick="onClickButton3"
+        android:textSize="16dp"
         android:text="1 минута"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,15 +24,17 @@
 
     <TextView
 
-        android:layout_width="162dp"
-        android:layout_height="30dp"
+        android:layout_width="199dp"
+        android:layout_height="33dp"
         android:text="Выберите время игры!"
         android:textColor="@color/black"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <Button
         android:id="@+id/button1"
@@ -42,6 +45,7 @@
         android:backgroundTint="#1E88E5"
         android:onClick="onClickButton1"
         android:text="10 секунд"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,7 @@
         android:backgroundTint="#1E88E5"
         android:onClick="onClickButton2"
         android:text="30 секунд"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

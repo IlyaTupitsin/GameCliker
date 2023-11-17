@@ -24,8 +24,8 @@ public class gameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //первоночальное положение кнопок
-        findViewById(R.id.button4).setEnabled(true);
-        findViewById(R.id.button5).setEnabled(true);
+        findViewById(R.id.button4).setEnabled(false);
+        findViewById(R.id.button5).setEnabled(false);
 
     }
 
@@ -34,8 +34,6 @@ public class gameActivity extends AppCompatActivity {
         counter1++;
         TextView counterView = findViewById(R.id.igrok1);
         counterView.setText(counter1.toString());
-        Bundle arguments = getIntent().getExtras();
-        int X = arguments.getInt("1");
 
 
     }
@@ -43,7 +41,6 @@ public class gameActivity extends AppCompatActivity {
     //метод при которм при нажаитии на кнопку значение counter2 увеличивается на 1 и его счет пишется в текстовом поле idrok2
         public void onClickBtn5 (View view)
         {
-
             counter2++;
             TextView counterView = findViewById(R.id.igrok2);
             counterView.setText(counter2.toString());
@@ -52,6 +49,8 @@ public class gameActivity extends AppCompatActivity {
 //кнопка начала игры, при которой запускается таймер и по его очанчанию выводлится результат
         public void onClickStart(View v) {
             v.setVisibility(View.GONE);
+            findViewById(R.id.button4).setEnabled(true);
+            findViewById(R.id.button5).setEnabled(true);
             Bundle arguments = getIntent().getExtras();
             int X = arguments.getInt("1");
             mTimerText = findViewById(R.id.textView);
@@ -173,6 +172,7 @@ public class gameActivity extends AppCompatActivity {
             }
         }
 
+        //выход на основное активити
     public void onClickBtnBack (View view){
      finish();
     }

@@ -6,65 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="105dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginEnd="152dp"
-        android:backgroundTint="#1E88E5"
-        android:onClick="onClickButton3"
-        android:textSize="16dp"
-        android:text="1 минута"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.game.GameFragment"
+        android:layout_width="912dp"
+        android:layout_height="904dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-
-        android:layout_width="199dp"
-        android:layout_height="33dp"
-        android:text="Выберите время игры!"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="com.example.game.TimerFragment"
+        android:layout_width="377dp"
+        android:layout_height="906dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="105dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginEnd="152dp"
-        android:backgroundTint="#1E88E5"
-        android:onClick="onClickButton1"
-        android:text="10 секунд"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="105dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginEnd="152dp"
-        android:backgroundTint="#1E88E5"
-        android:onClick="onClickButton2"
-        android:text="30 секунд"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

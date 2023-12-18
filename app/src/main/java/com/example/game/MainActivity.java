@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     String Timer;
@@ -18,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
     TextView mTimerText;
     private Integer counter2 = 0;
     private View v;
+    SharedPreferences sPref;
+    SharedPreferences sPref2;
+    SharedPreferences sPref3;
+
+    final String SAVED_TEXT = "saved_text";
+    final String SAVED_TEXT2 = "saved_text2";
+    final String SAVED_TEXT3 = "saved_text3";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,25 +112,37 @@ public class MainActivity extends AppCompatActivity {
                     mTimerText.setText("");
                     findViewById(R.id.button4).setEnabled(false);
                     findViewById(R.id.button5).setEnabled(false);
-                    //условия вывода результатов
+
+
+                        //условия вывода результатов
                     if (counter1 > counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
+                        TextView record1 = (TextView) findViewById(R.id.rekord1);
                         textView.setText("победил красный!");
+                        record1.setText(counter1.toString());
+                        saveText();
                     }
                     if (counter1 < counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("победил синий!");
+                        TextView record1 = (TextView) findViewById(R.id.rekord1);
+                        record1.setText(counter2.toString());
+                        saveText();
                     }
                     if (counter1 == counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("ничья!");
+                        TextView record1 = (TextView) findViewById(R.id.rekord1);
+                        record1.setText(counter1.toString());
+                        saveText();
                     }
                 }
 
             }.start();
+
         }
         //условиe для выбора времени таймер
         if (Timer == "30") {
@@ -133,21 +159,30 @@ public class MainActivity extends AppCompatActivity {
                     mTimerText.setText("");
                     findViewById(R.id.button4).setEnabled(false);
                     findViewById(R.id.button5).setEnabled(false);
-                    //условия вывода результатов
-                    if (counter1 > counter2) {// Инициализируем компонент
+                     //условия вывода результатов
+                    if (counter1 > counter2) { // Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("победил красный!");
+                        TextView record2 = (TextView) findViewById(R.id.rekord2);
+                        record2.setText(counter1.toString());
+                        saveText2();
                     }
                     if (counter1 < counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("победил синий!");
+                        TextView record2 = (TextView) findViewById(R.id.rekord2);
+                        record2.setText(counter2.toString());
+                        saveText2();
                     }
                     if (counter1 == counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("ничья!");
+                        TextView record2 = (TextView) findViewById(R.id.rekord2);
+                        record2.setText(counter1.toString());
+                        saveText2();
                     }
                 }
             }.start();
@@ -172,27 +207,66 @@ public class MainActivity extends AppCompatActivity {
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("победил красный!");
+                        TextView record3 = (TextView) findViewById(R.id.rekord3);
+                        record3.setText(counter1.toString());
+                        saveText3();
                     }
                     if (counter1 < counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("победил синий!");
+                        TextView record3 = (TextView) findViewById(R.id.rekord3);
+                        record3.setText(counter2.toString());
+                        saveText3();
                     }
                     if (counter1 == counter2) {// Инициализируем компонент
                         TextView textView = findViewById(R.id.textViewResultat);
                         // задаём текст
                         textView.setText("ничья!");
+                        TextView record3 = (TextView) findViewById(R.id.rekord3);
+                        record3.setText(counter1.toString());
+                        saveText3();
                     }
                 }
             }.start();
         }
 
-    }public void onClickBtnBack (View view){
+    }
+
+    private void saveText3() {
+        TextView record3 = (TextView) findViewById(R.id.rekord3);
+        sPref3 = getPreferences(MODE_PRIVATE);
+        Editor ed3 = sPref3.edit();
+        ed3.putString(SAVED_TEXT3, record3.getText().toString());
+        ed3.commit();
+        Toast.makeText(this, "Text saved3", Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveText2() {
+        TextView record2 = (TextView) findViewById(R.id.rekord2);
+        sPref2 = getPreferences(MODE_PRIVATE);
+        Editor ed2 = sPref2.edit();
+        ed2.putString(SAVED_TEXT2, record2.getText().toString());
+        ed2.commit();
+        Toast.makeText(this, "Text saved2", Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveText() {
+        TextView record1 = (TextView) findViewById(R.id.rekord1);
+        sPref = getPreferences(MODE_PRIVATE);
+        Editor ed = sPref.edit();
+        ed.putString(SAVED_TEXT, record1.getText().toString());
+        ed.commit();
+        Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onClickBtnBack (View view){
+
         findViewById(R.id.buttonStart).setVisibility(View.VISIBLE);
-       //finish();
-        //startActivity(getIntent());
-        //overridePendingTransition(0, 0);
-        //String time = System.currentTimeMillis() + "";
+        // finish();
+        // startActivity(getIntent());
+        // overridePendingTransition(0, 0);
+        // String time = System.currentTimeMillis() + "";
         // v.setVisibility(View.VISIBLE);
         counter1 = 0;
         counter2 = 0;
@@ -200,6 +274,41 @@ public class MainActivity extends AppCompatActivity {
         counterView.setText(counter1.toString());
         counterView = findViewById(R.id.igrok2);
         counterView.setText(counter2.toString());
+        TextView Resultat = (TextView) findViewById(R.id.textViewResultat);
+        Resultat.setText("");
+
+
 
     }
+    public void onClickLoad (View view){
+        loadText();
+        loadText2();
+        loadText3();
+
+    }
+
+    private void loadText3() {
+        TextView record3 = (TextView) findViewById(R.id.rekord3);
+        sPref3 = getPreferences(MODE_PRIVATE);
+        String savedText3 = sPref3.getString(SAVED_TEXT3, "");
+        record3.setText(savedText3);
+        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadText2() {
+        TextView record2 = (TextView) findViewById(R.id.rekord2);
+        sPref2 = getPreferences(MODE_PRIVATE);
+        String savedText2 = sPref2.getString(SAVED_TEXT2, "");
+        record2.setText(savedText2);
+        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadText() {
+        TextView record1 = (TextView) findViewById(R.id.rekord1);
+        sPref = getPreferences(MODE_PRIVATE);
+        String savedText = sPref.getString(SAVED_TEXT, "");
+        record1.setText(savedText);
+        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
+    }
+
 }

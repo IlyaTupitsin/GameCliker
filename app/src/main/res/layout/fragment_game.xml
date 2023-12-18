@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="105dp"
+        android:layout_width="111dp"
         android:layout_height="111dp"
         android:backgroundTint="#E53935"
         android:onClick="onClickBtn4"
@@ -82,18 +82,18 @@
 
     <Button
         android:id="@+id/buttonBack"
-        android:layout_width="128dp"
-        android:layout_height="133dp"
+        android:layout_width="111dp"
+        android:layout_height="109dp"
         android:layout_marginEnd="89dp"
         android:backgroundTint="#E53935"
         android:onClick="onClickBtnBack"
         android:text="сбросить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="0.092" />
 
     <TextView
         android:id="@+id/textView"
@@ -122,4 +122,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="465dp" />
+
+    <Button
+        android:id="@+id/buttonLoad"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:backgroundTint="#E53935"
+        android:onClick="onClickLoad"
+        android:text="Load"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.514" />
 </androidx.constraintlayout.widget.ConstraintLayout>

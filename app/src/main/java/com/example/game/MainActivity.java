@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sPref2;
     SharedPreferences sPref3;
 
+
     final String SAVED_TEXT = "saved_text";
     final String SAVED_TEXT2 = "saved_text2";
     final String SAVED_TEXT3 = "saved_text3";
@@ -38,9 +39,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
     }
-
+    //метод вызова методов вывода сохранённого текста текст
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadText();
+        loadText2();
+        loadText3();
+    }
     //метод при которм при нажаитии на кнопку значение counter1 увеличивается на 1 и его счет пишется в текстовом поле idrok1
     public void onClickBtn4(View view) {
         counter1++;
@@ -58,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+// метод который задает время таймера и обнуляет поля игроков
     public void onClickButton1(View view) {
         Timer = "10";
         counter1 =0;
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         counterView.setText(counter2.toString());
 
     }
-
+    // метод который задает время таймера и обнуляет поля игроков
     public void onClickButton2(View view) {
         Timer = "30";
         counter1 =0;
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         counterView.setText(counter2.toString());
     }
 
-    //метод при катором при нажатии на кнопку, мы переходим на другую активность и с собой берём число
+    // метод который задает время таймера и обнуляет поля игроков
     public void onClickButton3(View view) {
         Timer = "60";
         counter1 =0;
@@ -90,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         counterView = findViewById(R.id.igrok2);
         counterView.setText(counter2.toString());
     }
-
+    // метод запуска таймера ,ну и игры
     public void onClickStart(View v) {
         v.setVisibility(View.GONE);
         findViewById(R.id.button4).setEnabled(true);
@@ -232,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+//методы сохранения настроек
     private void saveText3() {
         TextView record3 = (TextView) findViewById(R.id.rekord3);
         sPref3 = getPreferences(MODE_PRIVATE);
@@ -259,15 +266,10 @@ public class MainActivity extends AppCompatActivity {
         ed.commit();
         Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
     }
-
+    // обнулить поля игры
     public void onClickBtnBack (View view){
 
         findViewById(R.id.buttonStart).setVisibility(View.VISIBLE);
-        // finish();
-        // startActivity(getIntent());
-        // overridePendingTransition(0, 0);
-        // String time = System.currentTimeMillis() + "";
-        // v.setVisibility(View.VISIBLE);
         counter1 = 0;
         counter2 = 0;
         TextView counterView = findViewById(R.id.igrok1);
@@ -280,13 +282,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void onClickLoad (View view){
-        loadText();
-        loadText2();
-        loadText3();
 
-    }
 
+//методы вывода сохранненного текста
     private void loadText3() {
         TextView record3 = (TextView) findViewById(R.id.rekord3);
         sPref3 = getPreferences(MODE_PRIVATE);
